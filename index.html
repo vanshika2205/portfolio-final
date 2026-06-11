@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vanshika Bansal's Interactive 3D Portfolio. Highlighting software architectures, IoT hardware projects, and telemetry displays.">
+  <title>Vanshika Bansal | Interactive Systems Developer</title>
+  
+  <!-- Font Awesome CSS Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Three.js Interactive Canvas Container -->
+  <div id="canvas-container"></div>
+
+  <!-- Floating Holographic Navigation -->
+  <header id="site-header">
+    <div class="nav-container">
+      <a href="#hero" class="logo">VANSHIKA BANSAL</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" id="nav-link-about"><i class="fa-solid fa-satellite"></i> About</a></li>
+        <li><a href="#projects" id="nav-link-projects"><i class="fa-solid fa-layer-group"></i> Systems</a></li>
+        <li><a href="#skills" id="nav-link-skills"><i class="fa-solid fa-chart-line"></i> Telemetry</a></li>
+        <li><a href="#deployments" id="nav-link-deployments"><i class="fa-solid fa-satellite-dish"></i> Deployments</a></li>
+        <li><a href="#experience" id="nav-link-experience"><i class="fa-solid fa-timeline"></i> Timeline</a></li>
+        <li><a href="#contact" id="nav-link-contact"><i class="fa-solid fa-circle-nodes"></i> Uplink</a></li>
+      </ul>
+      <button class="menu-btn" id="menu-btn" aria-label="Toggle Navigation Drawer">
+        <div class="menu-btn-box">
+          <div class="menu-btn-line"></div>
+          <div class="menu-btn-line"></div>
+          <div class="menu-btn-line"></div>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <div class="hero-content reveal-spatial active">
+        <span class="hero-spatial-label"><i class="fa-solid fa-globe"></i> 3D NEON CONSTELLATION ACTIVE</span>
+        <h1>VANSHIKA BANSAL</h1>
+        <p class="hero-desc">
+          Operating at the intersection of **Full-Stack Software Development** and **Instrumentation & Control Engineering**. Drag the background to rotate the 3D grid, scroll to navigate, and hover over cards to explore the systems.
+        </p>
+        <div class="hero-ctas">
+          <a href="#projects" class="spatial-btn btn-teal" id="hero-btn-systems">Explore Systems <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></a>
+          <a href="resume.pdf" class="spatial-btn btn-magenta-outline" id="hero-btn-resume" download><i class="fa-solid fa-download" style="margin-right: 8px;"></i> Download Datasheet</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="spatial-tag">// BIOS_DIAGNOSTICS</span>
+        <h2 class="spatial-title">Personal Bios</h2>
+      </div>
+      <div class="about-grid">
+        
+        <!-- About Details with Perspective 3D Tilt -->
+        <div class="tilt-card-wrapper">
+          <div class="tilt-card reveal-spatial">
+            <h3 class="tilt-depth-h3" style="color: var(--neon-teal);">System Specifications</h3>
+            <p class="tilt-depth-p">
+              I specialize in bridging physical sensory electronics with scalable web frameworks. With a background rooted in **Instrumentation & Control Engineering (ICE)**, I design full-stack architectures that communicate smoothly from device controllers to cloud data pipelines.
+            </p>
+            <p class="tilt-depth-p" style="margin-top: 1rem;">
+              I lead campus technical webinars, organize developer communities, and build highly responsive, premium web applications.
+            </p>
+            <div class="diagnostics-block tilt-depth-misc">
+              <div class="diag-panel">
+                <span class="diag-lbl">ACADEMIC_FOCUS</span>
+                <div class="diag-val" style="font-size: 1.25rem;">B.Tech ICE</div>
+              </div>
+              <div class="diag-panel">
+                <span class="diag-lbl">SYSTEM_NODES</span>
+                <div class="diag-val">9 Projects</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Music Profile Card with 3D Tilt -->
+        <div class="tilt-card-wrapper">
+          <div class="tilt-card reveal-spatial">
+            <h3 class="tilt-depth-h3" style="color: var(--neon-magenta);"><i class="fa-solid fa-guitar" style="margin-right: 8px;"></i> Wave Modulator // Musician</h3>
+            <p class="tilt-depth-p">
+              Beyond logic chips, circuits, and frameworks, I focus on acoustic wave coordination. I have been playing the **guitar** since the 4th grade, constantly exploring musical styles and instruments.
+            </p>
+            <p class="tilt-depth-p" style="margin-top: 1rem;">
+              My musical spectrum has shifted dynamically—originating from solid Western configurations during school terms to classical compositions throughout my engineering college life.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="spatial-tag">// ARCHITECTURES & SYSTEMS</span>
+        <h2 class="spatial-title">Operational Projects</h2>
+      </div>
+
+      <!-- Categories Filter -->
+      <div class="filter-hud">
+        <button class="filter-tab active" onclick="filterProjects('all')" id="filter-all">All Systems</button>
+        <button class="filter-tab" onclick="filterProjects('software')" id="filter-software"><i class="fa-solid fa-code" style="margin-right: 6px;"></i> Software</button>
+        <button class="filter-tab" onclick="filterProjects('hardware')" id="filter-hardware"><i class="fa-solid fa-microchip" style="margin-right: 6px;"></i> Hardware / IoT</button>
+      </div>
+
+      <!-- Projects Grid Matrix -->
+      <div class="projects-grid" id="projects-grid">
+        
+        <!-- Symphony Studio -->
+        <div class="tilt-card-wrapper" data-category="software">
+          <div class="tilt-card proj-card reveal-spatial">
+            <div>
+              <div class="proj-visual visual-software">
+                <i class="fa-solid fa-sliders proj-glow-icon"></i>
+              </div>
+              <span class="proj-cat">Web Audio DAW</span>
+              <h3 class="tilt-depth-h3">Symphony Studio</h3>
+              <p class="tilt-depth-p">An ultra-premium, interactive launchpad, beat machine, and step sequencer built with **HTML5 Web Audio API**, real-time canvas visualizers, and custom EQ dials.</p>
+            </div>
+            <div class="proj-footer tilt-depth-misc">
+              <div class="proj-matrix">
+                <span class="proj-badge">Web Audio</span>
+                <span class="proj-badge">Canvas API</span>
+                <span class="proj-badge">Vanilla JS</span>
+              </div>
+              <a href="https://symphony-studio.vercel.app/" target="_blank" class="proj-demo-link" rel="noopener noreferrer">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SAMTULAN -->
+        <div class="tilt-card-wrapper" data-category="software">
+          <div class="tilt-card proj-card reveal-spatial">
+            <div>
+              <div class="proj-visual visual-software">
+                <i class="fa-solid fa-scale-balanced proj-glow-icon"></i>
+              </div>
+              <span class="proj-cat">Next.js Web System</span>
+              <h3 class="tilt-depth-h3">SAMTULAN</h3>
+              <p class="tilt-depth-p">A high-performance wellness and balanced scale logs management page utilizing a scalable **Next.js** database model.</p>
+            </div>
+            <div class="proj-footer tilt-depth-misc">
+              <div class="proj-matrix">
+                <span class="proj-badge">NextJS</span>
+                <span class="proj-badge">TailwindCSS</span>
+                <span class="proj-badge">Full-Stack</span>
+              </div>
+              <a href="https://samtulan-2d9z.vercel.app/" target="_blank" class="proj-demo-link" rel="noopener noreferrer">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Netflix Clone -->
+        <div class="tilt-card-wrapper" data-category="software">
+          <div class="tilt-card proj-card reveal-spatial">
+            <div>
+              <div class="proj-visual visual-software">
+                <i class="fa-solid fa-tv proj-glow-icon"></i>
+              </div>
+              <span class="proj-cat">Web Streaming</span>
+              <h3 class="tilt-depth-h3">Netflix Clone</h3>
+              <p class="tilt-depth-p">A full-fidelity replica layout of the streaming platform, incorporating frontend interface modules and local API channels.</p>
+            </div>
+            <div class="proj-footer tilt-depth-misc">
+              <div class="proj-matrix">
+                <span class="proj-badge">HTML5</span>
+                <span class="proj-badge">CSS3</span>
+                <span class="proj-badge">React</span>
+              </div>
+              <a href="https://netflix-plum-psi-26.vercel.app/" target="_blank" class="proj-demo-link" rel="noopener noreferrer">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spotify Clone -->
+        <div class="tilt-card-wrapper" data-category="software">
+          <div class="tilt-card proj-card reveal-spatial">
+            <div>
+              <div class="proj-visual visual-software">
+                <i class="fa-solid fa-music proj-glow-icon"></i>
+              </div>
+              <span class="proj-cat">Audio Player</span>
+              <h3 class="tilt-depth-h3">Spotify Clone</h3>
+              <p class="tilt-depth-p">Responsive frontend music streamer integrating audio track controls, album layouts, and customized neon scroll elements.</p>
+            </div>
+            <div class="proj-footer tilt-depth-misc">
+              <div class="proj-matrix">
+                <span class="proj-badge">HTML5</span>
+                <span class="proj-badge">CSS3</span>
+                <span class="proj-badge">JavaScript</span>
+              </div>
+              <a href="https://spotify-clone-sage-phi.vercel.app/" target="_blank" class="proj-demo-link" rel="noopener noreferrer">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Drainage System -->
+        <div class="tilt-card-wrapper" data-category="hardware">
+          <div class="tilt-card proj-card reveal-spatial">
+            <div>
+              <div class="proj-image-container carousel-container" id="carousel-drainage">
+                <div class="carousel-slides">
+                  <img src="assets/drainage.jpg" alt="Smart Drainage Hardware" class="proj-image active">
+                  <img src="assets/drainage2.png" alt="Lab Web Dashboard" class="proj-image">
+                  <img src="assets/drainage3.jpg" alt="ESP32 Breadboard Node" class="proj-image">
+                </div>
+                <div class="carousel-controls">
+                  <button class="carousel-btn prev" onclick="moveSlide('carousel-drainage', -1, event)">&lt;</button>
+                  <button class="carousel-btn next" onclick="moveSlide('carousel-drainage', 1, event)">&gt;</button>
+                </div>
+                <div class="hardware-status-badge">
+                  <span class="status-dot pulsing-cyan"></span> LIVE FEED
+                </div>
+              </div>
+              <span class="proj-cat">IoT Embedded Node</span>
+              <h3 class="tilt-depth-h3">Smart Drainage</h3>
+              <p class="tilt-depth-p">Automated environmental dashboard tracking real-time pH, turbidity level, temperature, and water humidity metrics.</p>
+              
+              <div class="hardware-telemetry">
+                <div class="tel-item"><span class="tel-label">LAB TEMP:</span> <span class="tel-val text-glow-cyan">29.70 °C</span></div>
+                <div class="tel-item"><span class="tel-label">LAB HUMIDITY:</span> <span class="tel-val text-glow-cyan">47.00 %</span></div>
+                <div class="tel-item"><span class="tel-label">FIELD DIST:</span> <span class="tel-val text-glow-cyan">1.97 cm</span></div>
+                <div class="tel-item"><span class="tel-label">FIELD GAS:</span> <span class="tel-val text-glow-cyan">416 ppm</span></div>
+              </div>
+            </div>
+            <div class="proj-matrix tilt-depth-misc">
+              <span class="proj-badge">IoT Core</span>
+              <span class="proj-badge">Sensors</span>
+              <span class="proj-badge">Telemetry</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Predictive System -->
+        <div class="tilt-card-wrapper" data-category="hardware">
+          <div class="tilt-card proj-card reveal-spatial">
+            <div>
+              <div class="proj-image-container">
+                <img src="assets/predictive.png" alt="Predictive System Hardware" class="proj-image">
+                <div class="hardware-status-badge alert-badge">
+                  <span class="status-dot pulsing-pink"></span> ALERT TRIGGERED
+                </div>
+              </div>
+              <span class="proj-cat">Industrial Automation</span>
+              <h3 class="tilt-depth-h3">Smart Predictive</h3>
+              <p class="tilt-depth-p">Predictive analytics sensor platform measuring device vibration cycles and hot zones as a preventative diagnostic mesh.</p>
+              
+              <div class="hardware-telemetry">
+                <div class="tel-item"><span class="tel-label">TEMP PROFILE:</span> <span class="tel-val text-glow-pink">35.80 °C</span></div>
+                <div class="tel-item"><span class="tel-label">VIBRATION LVL:</span> <span class="tel-val text-glow-pink">HIGH (ALERT)</span></div>
+                <div class="tel-item"><span class="tel-label">MOTOR CYCLE:</span> <span class="tel-val text-glow-pink">ACTIVE (DC)</span></div>
+                <div class="tel-item"><span class="tel-label">SYS HEALTH:</span> <span class="tel-val text-glow-pink">CRITICAL</span></div>
+              </div>
+            </div>
+            <div class="proj-matrix tilt-depth-misc">
+              <span class="proj-badge">Sensors</span>
+              <span class="proj-badge">Hardware</span>
+              <span class="proj-badge">Automation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Digital Counter -->
+        <div class="tilt-card-wrapper" data-category="hardware">
+          <div class="tilt-card proj-card reveal-spatial">
+            <div>
+              <div class="proj-image-container dual-image">
+                <img src="assets/counter1.jpg" alt="Digital Counter Setup 1" class="proj-image img-primary">
+                <img src="assets/counter2.jpg" alt="Digital Counter Setup 2" class="proj-image img-secondary">
+                <div class="hardware-status-badge">
+                  <span class="status-dot pulsing-purple"></span> ACTIVE
+                </div>
+              </div>
+              <span class="proj-cat">Logic Systems</span>
+              <h3 class="tilt-depth-h3">Digital Counter</h3>
+              <p class="tilt-depth-p">Seven-segment counting logic circuit wired with fast controller chips and physical clock controllers.</p>
+              
+              <div class="hardware-telemetry">
+                <div class="tel-item"><span class="tel-label">LOGIC CHIP:</span> <span class="tel-val text-glow-purple">Arduino Uno</span></div>
+                <div class="tel-item"><span class="tel-label">DISPLAY TYPE:</span> <span class="tel-val text-glow-purple">4-Digit 7-Segment</span></div>
+                <div class="tel-item"><span class="tel-label">COUNT MODE:</span> <span class="tel-val text-glow-purple">Manual & Auto</span></div>
+                <div class="tel-item"><span class="tel-label">CLOCK CYCLE:</span> <span class="tel-val text-glow-purple">Real-Time Fast</span></div>
+              </div>
+            </div>
+            <div class="proj-matrix tilt-depth-misc">
+              <span class="proj-badge">Logic Gates</span>
+              <span class="proj-badge">Circuits</span>
+              <span class="proj-badge">Electronics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ATHENA -->
+        <div class="tilt-card-wrapper" data-category="software">
+          <div class="tilt-card proj-card reveal-spatial">
+            <div>
+              <div class="proj-visual visual-software">
+                <i class="fa-solid fa-graduation-cap proj-glow-icon"></i>
+              </div>
+              <span class="proj-cat">Academic Portal</span>
+              <h3 class="tilt-depth-h3">ATHENA Portal</h3>
+              <p class="tilt-depth-p">Comprehensive web learning management platform styled with smooth navigation tabs and aesthetic scroll grids.</p>
+            </div>
+            <div class="proj-matrix tilt-depth-misc">
+              <span class="proj-badge">HTML5</span>
+              <span class="proj-badge">CSS3</span>
+              <span class="proj-badge">Interactive JS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AGGARWAL -->
+        <div class="tilt-card-wrapper" data-category="software">
+          <div class="tilt-card proj-card reveal-spatial">
+            <div>
+              <div class="proj-visual visual-software">
+                <i class="fa-solid fa-building proj-glow-icon"></i>
+              </div>
+              <span class="proj-cat">Commercial Interface</span>
+              <h3 class="tilt-depth-h3">AGGARWAL Site</h3>
+              <p class="tilt-depth-p">Commercial business dashboard containing robust frontend models and standard responsive CSS blocks.</p>
+            </div>
+            <div class="proj-footer tilt-depth-misc">
+              <div class="proj-matrix">
+                <span class="proj-badge">Full-Stack</span>
+                <span class="proj-badge">NodeJS</span>
+                <span class="proj-badge">Database</span>
+              </div>
+              <a href="https://aggarwal-wine.vercel.app/" target="_blank" class="proj-demo-link" rel="noopener noreferrer">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- DSC -->
+        <div class="tilt-card-wrapper" data-category="software">
+          <div class="tilt-card proj-card reveal-spatial">
+            <div>
+              <div class="proj-visual visual-software">
+                <i class="fa-solid fa-network-wired proj-glow-icon"></i>
+              </div>
+              <span class="proj-cat">Developer Community</span>
+              <h3 class="tilt-depth-h3">DSC Page</h3>
+              <p class="tilt-depth-p">A high-density local campus developer community website designed with neon glowing matrices.</p>
+            </div>
+            <div class="proj-matrix tilt-depth-misc">
+              <span class="proj-badge">HTML5</span>
+              <span class="proj-badge">CSS3</span>
+              <span class="proj-badge">Community UI</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="spatial-tag">// DYNAMIC_TELEMETRY</span>
+        <h2 class="spatial-title">Telemetry & Skills</h2>
+      </div>
+      <div class="skills-grid">
+        
+        <!-- Dev -->
+        <div class="tilt-card-wrapper">
+          <div class="tilt-card skills-lane reveal-spatial">
+            <h3 style="color: var(--neon-pink);"><i class="fa-solid fa-code"></i> Software Development</h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-desc-block">
+                  <span>Front-end & Back-end Frameworks</span>
+                  <span>90%</span>
+                </div>
+                <div class="glow-bar-track">
+                  <div class="glow-bar-fill" data-percentage="90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-desc-block">
+                  <span>HTML5 / CSS3 / ES6 Javascript</span>
+                  <span>95%</span>
+                </div>
+                <div class="glow-bar-track">
+                  <div class="glow-bar-fill" data-percentage="95%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-desc-block">
+                  <span>Graphic UI Layouts (Canva)</span>
+                  <span>88%</span>
+                </div>
+                <div class="glow-bar-track">
+                  <div class="glow-bar-fill" data-percentage="88%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- IOT -->
+        <div class="tilt-card-wrapper">
+          <div class="tilt-card skills-lane reveal-spatial">
+            <h3 style="color: var(--neon-blue);"><i class="fa-solid fa-microchip"></i> Hardware & IoT</h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-desc-block">
+                  <span>IoT Sensor Architecture</span>
+                  <span>85%</span>
+                </div>
+                <div class="glow-bar-track">
+                  <div class="glow-bar-fill" data-percentage="85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-desc-block">
+                  <span>ICE Circuitry & Hardware Logic</span>
+                  <span>80%</span>
+                </div>
+                <div class="glow-bar-track">
+                  <div class="glow-bar-fill" data-percentage="80%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-desc-block">
+                  <span>Process Control Optimization</span>
+                  <span>85%</span>
+                </div>
+                <div class="glow-bar-track">
+                  <div class="glow-bar-fill" data-percentage="85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orchestration -->
+        <div class="tilt-card-wrapper">
+          <div class="tilt-card skills-lane reveal-spatial">
+            <h3 style="color: var(--neon-purple);"><i class="fa-solid fa-users"></i> Orchestration</h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-desc-block">
+                  <span>Project Coordination</span>
+                  <span>92%</span>
+                </div>
+                <div class="glow-bar-track">
+                  <div class="glow-bar-fill" data-percentage="92%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-desc-block">
+                  <span>Webinars & Campus Events</span>
+                  <span>95%</span>
+                </div>
+                <div class="glow-bar-track">
+                  <div class="glow-bar-fill" data-percentage="95%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-desc-block">
+                  <span>Professional Communication</span>
+                  <span>90%</span>
+                </div>
+                <div class="glow-bar-track">
+                  <div class="glow-bar-fill" data-percentage="90%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Field Deployments & Presentations Section -->
+  <section id="deployments" class="deployments">
+    <div class="container">
+      <div class="section-header">
+        <span class="spatial-tag">// ON_FIELD_TELEMETRY</span>
+        <h2 class="spatial-title">Field Deployments</h2>
+      </div>
+      <div class="deployments-grid">
+        <div class="tilt-card-wrapper">
+          <div class="tilt-card deployment-photo-card reveal-spatial">
+            <div class="holographic-frame carousel-container" id="carousel-presentation">
+              <div class="carousel-slides">
+                <img src="assets/presentation.jpg" alt="Systems Presentation at New Delhi 1" class="deployment-photo active">
+                <img src="assets/presentation2.jpg" alt="Systems Presentation at New Delhi 2" class="deployment-photo">
+              </div>
+              <div class="carousel-controls">
+                <button class="carousel-btn prev" onclick="moveSlide('carousel-presentation', -1, event)">&lt;</button>
+                <button class="carousel-btn next" onclick="moveSlide('carousel-presentation', 1, event)">&gt;</button>
+              </div>
+              <div class="scanline"></div>
+              <div class="laser-scanner"></div>
+            </div>
+          </div>
+        </div>
+        <div class="tilt-card-wrapper">
+          <div class="tilt-card deployment-desc-card reveal-spatial">
+            <h3 class="tilt-depth-h3" style="color: var(--neon-gold);"><i class="fa-solid fa-satellite-dish" style="margin-right: 8px;"></i> Delhi Presentation & Testing</h3>
+            <p class="tilt-depth-p">
+              Demonstrating and validating custom IoT hardware solutions, sensor arrays, and dynamic web dashboards on-field.
+            </p>
+            <div class="deployment-specs tilt-depth-misc">
+              <div class="spec-panel">
+                <span class="spec-lbl">LOCATION</span>
+                <div class="spec-val">New Delhi, India</div>
+              </div>
+              <div class="spec-panel">
+                <span class="spec-lbl">VENUE</span>
+                <div class="spec-val" style="font-size: 1.1rem; line-height: 1.3;">BVCOE Campus</div>
+              </div>
+              <div class="spec-panel">
+                <span class="spec-lbl">TELEMETRY</span>
+                <div class="spec-val" style="color: var(--neon-gold);">Verified Active</div>
+              </div>
+            </div>
+            <p class="tilt-depth-p" style="margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.8;">
+              Collaborating with peer engineering groups, faculty mentors, and industry observers to optimize water flow networks and predictive hardware diagnostics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="spatial-tag">// CORE_CHRONOLOGY</span>
+        <h2 class="spatial-title">Operational Chronology</h2>
+      </div>
+
+      <div class="timeline-pane">
+        
+        <div class="timeline-node reveal-spatial">
+          <div class="timeline-anchor"></div>
+          <div class="timeline-period">[ 08/2025 - 01/2026 ]</div>
+          <h4>Applied Mathematics Faculty Member</h4>
+          <div class="timeline-org">BunktoBrains // Remote</div>
+          <div class="timeline-desc">
+            <ul>
+              <li>Created comprehensive syllabus documents for Applied Mathematics-2.</li>
+              <li>Integrated interactive educational frameworks and software channels to facilitate online remote learning workflows.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-node reveal-spatial">
+          <div class="timeline-anchor"></div>
+          <div class="timeline-period">[ 01/2025 - 02/2025 ]</div>
+          <h4>Campus Community Ambassador</h4>
+          <div class="timeline-org">DevTown & Wayspire // On Campus</div>
+          <div class="timeline-desc">
+            <ul>
+              <li>Promoted webinars, developer forums, and technical campus workshops.</li>
+              <li>Connected engineering students with leading local community chapters.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-node reveal-spatial">
+          <div class="timeline-anchor"></div>
+          <div class="timeline-period">[ ICE B.Tech: 2024 - Expected 01/2028 ]</div>
+          <h4>B.Tech: Instrumentation & Control Engineering (ICE)</h4>
+          <div class="timeline-org">Bharati Vidyapeeth College of Engineering // New Delhi</div>
+          <div class="timeline-desc">
+            Focusing on control loops, sensor tech, data acquisition systems, logic electronics alongside robust full-stack software models.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="spatial-tag">// SECURE_UPLINK</span>
+        <h2 class="spatial-title">Establish Uplink</h2>
+      </div>
+      <div class="contact-grid">
+        
+        <!-- Info widgets -->
+        <div class="contact-channels">
+          
+          <div class="tilt-card-wrapper">
+            <div class="tilt-card channel-card reveal-spatial">
+              <div class="channel-icon">
+                <i class="fa-solid fa-microphone"></i>
+              </div>
+              <div class="channel-details">
+                <h4 class="tilt-depth-h3" style="font-size: 1.05rem; margin-bottom: 0.1rem;">Call channels</h4>
+                <p class="tilt-depth-p"><a href="tel:+919773708081">+91 9773708081</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tilt-card-wrapper">
+            <div class="tilt-card channel-card reveal-spatial">
+              <div class="channel-icon">
+                <i class="fa-regular fa-paper-plane"></i>
+              </div>
+              <div class="channel-details">
+                <h4 class="tilt-depth-h3" style="font-size: 1.05rem; margin-bottom: 0.1rem;">Direct Uplink</h4>
+                <p class="tilt-depth-p"><a href="mailto:vanshikabansal887@gmail.com">vanshikabansal887@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tilt-card-wrapper">
+            <div class="tilt-card channel-card reveal-spatial">
+              <div class="channel-icon">
+                <i class="fa-solid fa-location-crosshairs"></i>
+              </div>
+              <div class="channel-details">
+                <h4 class="tilt-depth-h3" style="font-size: 1.05rem; margin-bottom: 0.1rem;">Coordinates</h4>
+                <p class="tilt-depth-p">New Delhi, India 110045</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Custom Spatial Form -->
+        <div class="tilt-card-wrapper">
+          <div class="tilt-card reveal-spatial">
+            <form action="mailto:vanshikabansal887@gmail.com" method="POST" enctype="text/plain" class="spatial-form">
+              <div class="form-group">
+                <label for="name">Identifier // Your Name</label>
+                <input type="text" id="name" name="name" class="spatial-input" placeholder="Enter full name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Uplink Gateway // Email</label>
+                <input type="email" id="email" name="email" class="spatial-input" placeholder="name@domain.com" required>
+              </div>
+              <div class="form-group">
+                <label for="msg">Message Block</label>
+                <textarea id="msg" name="message" class="spatial-input" placeholder="Write text segment..." required></textarea>
+              </div>
+              <button type="submit" class="spatial-btn btn-teal tilt-depth-misc" id="submit-uplink">Transmit Segment <i class="fa-solid fa-paper-plane" style="margin-left: 8px;"></i></button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <a href="#hero" class="footer-logo">VANSHIKA BANSAL</a>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/vanshika-bansal-627602324" target="_blank" aria-label="LinkedIn telemetry" class="social-circle"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/vanshika2205" target="_blank" aria-label="GitHub telemetry" class="social-circle"><i class="fa-brands fa-github"></i></a>
+        <a href="mailto:vanshikabansal887@gmail.com" aria-label="Send email" class="social-circle"><i class="fa-regular fa-envelope"></i></a>
+      </div>
+      <p class="footer-note">&copy; 2026 Vanshika Bansal. Immersive 3D wireframe constellation matrix active.</p>
+    </div>
+  </footer>
+
+  <!-- Three.js CDN Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Custom Core 3D controller -->
+  <script src="script.js"></script>
+</body>
+</html>
