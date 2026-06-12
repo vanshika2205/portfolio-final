@@ -297,11 +297,21 @@ header {
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -2px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.6rem;
   background: linear-gradient(135deg, #ffffff 20%, var(--neon-pink) 60%, var(--neon-blue) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 25px rgba(255, 0, 127, 0.25);
+}
+
+.hero-tagline {
+  font-family: var(--font-spatial);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--neon-blue);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
+  letter-spacing: 1px;
 }
 
 .hero-desc {
@@ -538,6 +548,11 @@ header {
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+[data-category="hardware"] .proj-image {
+  object-fit: contain;
+  background-color: rgba(5, 3, 10, 0.95);
 }
 
 .tilt-card:hover .proj-image {
@@ -1127,6 +1142,11 @@ footer {
     font-size: 3.8rem;
   }
   
+  .hero-tagline {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+  
   .about-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -1172,6 +1192,8 @@ footer {
   .menu-btn {
     display: block;
     z-index: 1001;
+    padding: 10px;
+    margin: -10px;
   }
   
   .nav-links {
@@ -1231,9 +1253,33 @@ footer {
     font-size: 2.6rem;
   }
   
+  .hero-tagline {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-ctas {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+  
   .spatial-btn {
     width: 100%;
     text-align: center;
+  }
+  
+  .diagnostics-block {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .timeline-pane {
+    padding-left: 2rem;
+  }
+  
+  .timeline-anchor {
+    left: calc(-2rem - 9px);
   }
 }
 

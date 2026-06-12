@@ -158,6 +158,35 @@ function initThreeDUniverse() {
     isDragging = false;
   });
 
+  // Touch Drag Orbit Bindings for Mobile Devices
+  window.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (e) => {
+    if (isDragging && mainMesh && e.touches.length > 0) {
+      const deltaMove = {
+        x: e.touches[0].clientX - previousMousePosition.x,
+        y: e.touches[0].clientY - previousMousePosition.y
+      };
+
+      mainMesh.rotation.y += deltaMove.x * 0.005;
+      mainMesh.rotation.x += deltaMove.y * 0.005;
+      
+      meshVelocity = {
+        x: deltaMove.y * 0.002,
+        y: deltaMove.x * 0.002
+      };
+
+      previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+
   window.addEventListener('resize', onWindowResize);
   window.addEventListener('scroll', onScrollCameraMove);
 
