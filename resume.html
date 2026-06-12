@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanshika Bansal - Resume</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --primary-color: #1a5fb4; /* Matching the blue header banner in screenshot */
+      --text-dark: #333333;
+      --text-muted: #555555;
+      --text-light: #777777;
+      --border-color: #d1d5db;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background-color: #f3f4f6;
+      line-height: 1.5;
+      padding: 2rem 1rem;
+    }
+
+    .resume-container {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #ffffff;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    /* Print/Save Control Panel */
+    .control-panel {
+      max-width: 850px;
+      margin: 0 auto 1.5rem auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1e1b4b;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .control-panel span {
+      color: #e3dffc;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .btn-action {
+      background: #ff007f;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-action:hover {
+      background: #e60072;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1.5px solid #00bfff;
+      color: #00bfff;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(0, 191, 255, 0.1);
+      color: #00bfff;
+    }
+
+    /* Resume Header Banner */
+    .resume-header {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      text-align: center;
+      padding: 2.2rem 1.5rem;
+    }
+
+    .resume-header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .resume-header .subtitle {
+      font-size: 1.05rem;
+      font-weight: 500;
+      opacity: 0.95;
+      margin-bottom: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+
+    .resume-header .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 0.85rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .resume-header .contact-info span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .resume-header .links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .resume-header .links a {
+      color: #ffffff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
+    }
+
+    .resume-header .links a:hover {
+      opacity: 0.8;
+    }
+
+    /* Resume Content Layout */
+    .resume-body {
+      padding: 2rem 2.5rem;
+    }
+
+    .section-title {
+      color: var(--primary-color);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1.5px solid var(--primary-color);
+      padding-bottom: 0.3rem;
+      margin-top: 1.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .summary-text {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      text-align: justify;
+    }
+
+    /* Skills Grid */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 0.5rem;
+    }
+
+    .skills-table tr {
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .skills-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .skills-table td {
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      vertical-align: top;
+    }
+
+    .skills-label {
+      font-weight: 700;
+      color: var(--primary-color);
+      width: 130px;
+    }
+
+    .skills-val {
+      color: var(--text-dark);
+    }
+
+    /* Projects / Experience items */
+    .item-block {
+      margin-bottom: 1rem;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.92rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .item-title {
+      font-weight: 700;
+    }
+
+    .item-tech {
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .item-description {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      padding-left: 1rem;
+    }
+
+    .item-description li {
+      margin-bottom: 0.2rem;
+    }
+
+    .item-date {
+      font-weight: 500;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Page-break helper for print */
+    .page-break {
+      display: none;
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+        color: #000000;
+      }
+
+      .resume-container {
+        box-shadow: none;
+        max-width: 100%;
+      }
+
+      .control-panel {
+        display: none;
+      }
+
+      .resume-body {
+        padding: 1.5rem 2rem;
+      }
+
+      .page-break {
+        display: block;
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Print Control Panel -->
+  <div class="control-panel">
+    <span><i class="fa-solid fa-file-pdf"></i> Interactive Resume Node Active</span>
+    <div style="display: flex; gap: 0.8rem;">
+      <a href="index.html" class="btn-action btn-secondary"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+      <button onclick="window.print()" class="btn-action"><i class="fa-solid fa-print"></i> Save / Print PDF</button>
+    </div>
+  </div>
+
+  <div class="resume-container">
+    
+    <!-- Header Banner -->
+    <div class="resume-header">
+      <h1>Vanshika Bansal</h1>
+      <div class="subtitle">Full Stack Developer &bull; Next.js &bull; React.js &bull; Node.js &bull; MongoDB</div>
+      <div class="contact-info">
+        <span><i class="fa-solid fa-location-dot"></i> New Delhi</span>
+        <span><i class="fa-solid fa-phone"></i> +91 9773708081</span>
+        <span><i class="fa-solid fa-envelope"></i> vanshikabansal887@gmail.com</span>
+      </div>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/vanshika-bansal-627602324" target="_blank">LinkedIn</a>
+        <a href="https://github.com/vanshika2205" target="_blank">GitHub</a>
+        <a href="index.html">Portfolio</a>
+      </div>
+    </div>
+
+    <div class="resume-body">
+      
+      <!-- Summary -->
+      <div class="section-title">Summary</div>
+      <p class="summary-text">
+        Full Stack Developer (B.Tech ICE, 2024–28) with hands-on experience in React.js, Next.js, Node.js, Express.js, and MongoDB. Builds responsive UIs, REST APIs, and auth systems; passionate about scalable web solutions.
+      </p>
+
+      <!-- Technical Skills -->
+      <div class="section-title">Technical Skills</div>
+      <table class="skills-table">
+        <tr>
+          <td class="skills-label">Languages</td>
+          <td class="skills-val">JavaScript (ES6+), HTML5, CSS3</td>
+        </tr>
+        <tr>
+          <td class="skills-label">Frontend</td>
+          <td class="skills-val">React.js, Next.js 14, Responsive Web Design</td>
+        </tr>
+        <tr>
+          <td class="skills-label">Backend</td>
+          <td class="skills-val">Node.js, Express.js, NextAuth</td>
+        </tr>
+        <tr>
+          <td class="skills-label">Database</td>
+          <td class="skills-val">MongoDB, Mongoose</td>
+        </tr>
+        <tr>
+          <td class="skills-label">Tools</td>
+          <td class="skills-val">Git, GitHub, VS Code, Vite, npm</td>
+        </tr>
+        <tr>
+          <td class="skills-label">Web Tech</td>
+          <td class="skills-val">REST APIs, JWT Auth, HTML5 Audio/Video API, Canvas API, LocalStorage</td>
+        </tr>
+        <tr>
+          <td class="skills-label">IoT / HW</td>
+          <td class="skills-val">Arduino Uno, ESP32, Sensor Integration</td>
+        </tr>
+      </table>
+
+      <!-- Projects -->
+      <div class="section-title">Projects</div>
+
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">AuraPrep AI &bull; <span style="font-style: italic; font-weight: normal; color: var(--text-light);">AI-Powered Interview Prep</span></span>
+          <span class="item-date"><a href="https://aura-prep-ai.vercel.app/" target="_blank" style="color: var(--primary-color); text-decoration: none;">Live Demo</a></span>
+        </div>
+        <div class="item-tech">Next.js, React.js, AI Integration, Tailwind CSS</div>
+        <ul class="item-description">
+          <li>AI-powered platform with mock interviews, resume-based question generation, evaluation workflows, and analytics dashboards.</li>
+        </ul>
+      </div>
+
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">SAMTULAN &bull; <span style="font-style: italic; font-weight: normal; color: var(--text-light);">Full Stack Wellness Platform</span></span>
+          <span class="item-date"><a href="https://samtulan-2d9z.vercel.app/" target="_blank" style="color: var(--primary-color); text-decoration: none;">Live Demo</a></span>
+        </div>
+        <div class="item-tech">Next.js 14, React.js, NextAuth, MongoDB, Tailwind CSS</div>
+        <ul class="item-description">
+          <li>Wellness management app with authentication, protected routes, responsive dashboards, and MongoDB integration.</li>
+        </ul>
+      </div>
+
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">Netflix Clone &bull; <span style="font-style: italic; font-weight: normal; color: var(--text-light);">Streaming Platform</span></span>
+          <span class="item-date"><a href="https://netflix-plum-psi-26.vercel.app/" target="_blank" style="color: var(--primary-color); text-decoration: none;">Live Demo</a></span>
+        </div>
+        <div class="item-tech">Node.js, Express.js, MongoDB, JWT Auth, HTML5, CSS3</div>
+        <ul class="item-description">
+          <li>Full-stack streaming platform with JWT auth, REST APIs, and responsive frontend.</li>
+        </ul>
+      </div>
+
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">Aggarwal Commercial &bull; <span style="font-style: italic; font-weight: normal; color: var(--text-light);">Business Website</span></span>
+          <span class="item-date"><a href="https://aggarwal-wine.vercel.app/" target="_blank" style="color: var(--primary-color); text-decoration: none;">Live Demo</a></span>
+        </div>
+        <div class="item-tech">Node.js, Express.js, MongoDB, HTML5, CSS3</div>
+        <ul class="item-description">
+          <li>Responsive business site with server-side routing, database connectivity, and mobile optimisation.</li>
+        </ul>
+      </div>
+
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">Spotify Clone &bull; <span style="font-style: italic; font-weight: normal; color: var(--text-light);">Music Platform</span></span>
+          <span class="item-date"><a href="https://spotify-clone-sage-phi.vercel.app/" target="_blank" style="color: var(--primary-color); text-decoration: none;">Live Demo</a></span>
+        </div>
+        <div class="item-tech">HTML5, CSS3, JavaScript, Audio API</div>
+        <ul class="item-description">
+          <li>Custom music player with playback controls, seek tracking, live filtering, and dynamic playlists.</li>
+        </ul>
+      </div>
+
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">Athena Portal &bull; <span style="font-style: italic; font-weight: normal; color: var(--text-light);">Browser-Based Game</span></span>
+          <span class="item-date"><a href="https://athena-rho-three.vercel.app/" target="_blank" style="color: var(--primary-color); text-decoration: none;">Live Demo</a></span>
+        </div>
+        <div class="item-tech">React.js, Vite, JavaScript, CSS3</div>
+        <ul class="item-description">
+          <li>Interactive browser game with dynamic mechanics, smooth UI, and component-based React architecture.</li>
+        </ul>
+      </div>
+
+      <!-- Page break for print formatting if needed -->
+      <div class="page-break"></div>
+
+      <!-- Experience -->
+      <div class="section-title" style="margin-top: 1rem;">Experience</div>
+
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">Faculty Member (Remote) &bull; <span style="font-weight: normal; color: var(--text-light);">BunktoBrains</span></span>
+          <span class="item-date">Aug 2025 – Jan 2026</span>
+        </div>
+        <ul class="item-description">
+          <li>Created digital learning resources for Applied Mathematics; improved student engagement via tech-enabled methods.</li>
+        </ul>
+      </div>
+
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">Campus Ambassador &bull; <span style="font-weight: normal; color: var(--text-light);">DevTown & Wayspire</span></span>
+          <span class="item-date">Jan – Feb 2025</span>
+        </div>
+        <ul class="item-description">
+          <li>Promoted technical communities and developer events; drove student participation in workshops.</li>
+        </ul>
+      </div>
+
+      <!-- Education -->
+      <div class="section-title">Education</div>
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">Bharati Vidyapeeth College of Engineering, Delhi</span>
+          <span class="item-date">2024 – 2028</span>
+        </div>
+        <div class="item-tech">B.Tech – Instrumentation & Control Engineering</div>
+      </div>
+
+      <!-- Additional Technical Projects -->
+      <div class="section-title">Additional Technical Projects</div>
+      <div class="item-block" style="font-size: 0.9rem; margin-bottom: 0.5rem;">
+        <strong>Smart Predictive Maintenance</strong> &mdash; <em>Arduino Uno, Vibration & Temp Sensor, C++</em> &mdash; Machine health monitoring via vibration and temperature analytics.
+      </div>
+      <div class="item-block" style="font-size: 0.9rem; margin-bottom: 0.5rem;">
+        <strong>Smart Drainage Monitor</strong> &mdash; <em>ESP32, ThingSpeak, pH/Turbidity/DHT11</em> &mdash; Real-time water quality monitoring with cloud telemetry.
+      </div>
+      <div class="item-block" style="font-size: 0.9rem; margin-bottom: 0.5rem;">
+        <strong>Temp & Humidity Detector</strong> &mdash; <em>Arduino/ESP8266, DHT11/22, LCD</em> &mdash; Environmental monitoring for real-time sensor readings.
+      </div>
+      <div class="item-block" style="font-size: 0.9rem; margin-bottom: 0.5rem;">
+        <strong>Digital Counter</strong> &mdash; <em>Arduino Uno, 7-Seg Display, Logic Gates</em> &mdash; Digital counting using embedded hardware.
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
